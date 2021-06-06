@@ -1,0 +1,31 @@
+{
+  "name": "discordjs-bot-template",
+  "version": "1.0.0",
+  "description": "A template for discord bot using discord.js",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "fs": "0.0.1-security",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrainyV/discordjs-bot-template.git"
+  },
+  "keywords": [
+    "template",
+    "bot",
+    "discord.js",
+    "discordbot"
+  ],
+  "author": "Brainy#2278 (763303010985574402)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrainyV/discordjs-bot-template/issues"
+  },
+  "homepage": "https://github.com/BrainyV/discordjs-bot-template#readme"
+}

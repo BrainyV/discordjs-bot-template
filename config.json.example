@@ -1,0 +1,8 @@
+{
+    "bot" : {
+        "token" : "BOT_TOKEN",
+        "prefix": "BOT_PREFIX",
+        "owner": "BOT_OWNER_ID",
+        "developers" : ["OTHER_DEVELOPERS_ID"]
+    }
+}
