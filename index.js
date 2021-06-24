@@ -1,4 +1,5 @@
 const fs = require('fs');
+const quickDB = require('quick.db')
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
