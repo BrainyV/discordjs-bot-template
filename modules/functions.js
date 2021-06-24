@@ -1,31 +1,32 @@
-module.exports = (client) => {
+module.exports = (client) => ({
 
-    client.clean = async (client, text) => {
-        if (text && text.constructor.name == "Promise")
-          text = await text;
-        if (typeof text !== "string")
-          text = require("util").inspect(text, {depth: 1});
+  clean: async function clean (client, text) {
+    if (text && text.constructor.name == "Promise")
+    text = await text;
     
-        text = text
-          .replace(/`/g, "`" + String.fromCharCode(8203))
-          .replace(/@/g, "@" + String.fromCharCode(8203))
-          .replace(client.token, "Why are you so noob at coding bro!");
+    if (typeof text !== "string")
+    text = require("util").inspect(text, {depth: 1});
     
-        return text;
-      };
+    text = text
+    .replace(/`/g, "`" + String.fromCharCode(8203))
+    .replace(/@/g, "@" + String.fromCharCode(8203))
+    .replace(client.token, "Why are you so noob at coding bro!");
 
-    client.codeBlock = async (code, toCode) => {
-        let codes = `\`\`\`${code}\n${toCode}\n\`\`\` `
+  return text;
+  },
+  codeBlock: async function codeBlock (code, toCode) {
+    let codes = `\`\`\`${code}\n${toCode}\n\`\`\` `
       return codes;
+  },
+
+  isBotOwner: async function isBotOwner (id) {
+    if (client.config.bot.owner === id) {
+      return true
+    } else if (client.config.bot.developers.includes(id)) {
+      return true
+    } else {
+      return false
     }
-    
-    client.isBotOwner = async (id) => {
-      if (client.config.bot.owner === id) {
-        return true
-      } else if (client.config.bot.developers.includes(id)) {
-        return true
-      } else {
-        return false
-      }
-    }
-}
+  } 
+
+})    
