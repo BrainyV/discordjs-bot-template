@@ -1,6 +1,6 @@
-module.exports = (client) => ({
+module.exports = (client) => {
 
-  clean: async function clean (client, text) {
+  client.clean = async (client, text) => {
     if (text && text.constructor.name == "Promise")
     text = await text;
     
@@ -13,13 +13,13 @@ module.exports = (client) => ({
     .replace(client.token, "Why are you so noob at coding bro!");
 
   return text;
-  },
-  codeBlock: async function codeBlock (code, toCode) {
+  }
+  client.codeBlock = (code, toCode) => {
     let codes = `\`\`\`${code}\n${toCode}\n\`\`\` `
       return codes;
-  },
-
-  isBotOwner: async function isBotOwner (id) {
+  }
+  
+  client.isBotOwner= (id) => {
     if (client.config.bot.owner === id) {
       return true
     } else if (client.config.bot.developers.includes(id)) {
@@ -27,6 +27,22 @@ module.exports = (client) => ({
     } else {
       return false
     }
-  } 
+  }
 
-})    
+  client.getUser = async (userID) => {
+    let user = client.currency.get(userID)
+
+    if (!user) {
+      user = await client.currency.set(userID, {
+        commands: 1,
+        lastCmd: Date.now(),
+        spam: 0,
+        wallet: 500,
+        bank: 0,
+        bankspace: 500,
+      }
+      )
+    } 
+    return user;
+  }    
+}

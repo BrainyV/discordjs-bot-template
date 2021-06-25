@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 client.commands = new Discord.Collection()
 client.cooldowns = new Discord.Collection();
+client.currency = new quickDB.table('currency') 
 client.config = require('./config.json')
 require("./modules/functions.js")(client)
 

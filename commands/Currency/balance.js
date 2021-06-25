@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 module.exports = {
     name: "balance",
     category: "currency",
@@ -5,6 +6,23 @@ module.exports = {
     aliases: ["bal", "coins", "wallet"],
     execute: async (client, message, args) => {
 
-        message.reply('Command under development')
+        let user = message.mentions.members.first() || message.guild.members.resolve(args[0])
+
+        if (user) {
+
+            let {wallet, bank} = await client.getUser(`${user.id}`);
+            const userWallet = new Discord.MessageEmbed()
+            .setTitle(`${user.user.username || user.username}'s balance`)
+            .setDescription(`**Wallet:** ${wallet.toLocaleString()}\n**Bank:**${bank.toLocaleString() || 0}`)
+            return message.channel.send(userWallet)
+
+        } else {
+
+            let {wallet, bank, bankspace} = await client.getUser(`${message.author.id}`);
+            const userWallet = new Discord.MessageEmbed()
+            .setTitle(`${message.author.username}'s balance`)
+            .setDescription(`**Wallet:** ${wallet.toLocaleString()}\n**Bank:** ${bank.toLocaleString() || 0}/${bankspace.toLocaleString()}`)
+            return message.channel.send(userWallet)
+        }
     } 
 }

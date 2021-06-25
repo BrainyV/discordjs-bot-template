@@ -1,3 +1,4 @@
+require('../modules/functions')
 module.exports = {
     name: "message",
     execute: async (message, client) => {
@@ -11,7 +12,7 @@ module.exports = {
 
         if (!command) return;
 
-        let check = await client.isBotOwner(`${message.author.id}`)
+        let check = await client.isBotOwner(message.author.id)
         if (command.category === "developers" && !check) return;
 
 
