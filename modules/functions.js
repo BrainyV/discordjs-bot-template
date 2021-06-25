@@ -44,5 +44,21 @@ module.exports = (client) => {
       )
     } 
     return user;
-  }    
+  }
+  
+  client.addWallet = async (userID, amount) => {
+    return client.currency.add(`${userID}.wallet`, amount)
+  }
+
+  client.addcmdusage = async (userID) => {
+    return client.currency.add(`${userID}.commands`, 1)
+  }
+
+  client.setlastCmd = async (userID, now) => {
+    return client.currency.set(`${userID}.lastCmd`, now)
+  }
+  
+  client.addSpam = (userID) => {
+    return client.currency.add(`${userID}.spam`, 1)
+  }
 }

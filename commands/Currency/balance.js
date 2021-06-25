@@ -13,8 +13,11 @@ module.exports = {
             let {wallet, bank} = await client.getUser(`${user.id}`);
             const userWallet = new Discord.MessageEmbed()
             .setTitle(`${user.user.username || user.username}'s balance`)
-            .setDescription(`**Wallet:** ${wallet.toLocaleString()}\n**Bank:**${bank.toLocaleString() || 0}`)
-            return message.channel.send(userWallet)
+            .setDescription(`**Wallet:** ${wallet.toLocaleString()}\n**Bank:** ${bank.toLocaleString() || 0}`)
+            .setColor("RANDOM")
+            .setFooter('wow rich')
+            .setTimestamp()
+            return message.inlineReply(userWallet)
 
         } else {
 
@@ -22,7 +25,10 @@ module.exports = {
             const userWallet = new Discord.MessageEmbed()
             .setTitle(`${message.author.username}'s balance`)
             .setDescription(`**Wallet:** ${wallet.toLocaleString()}\n**Bank:** ${bank.toLocaleString() || 0}/${bankspace.toLocaleString()}`)
-            return message.channel.send(userWallet)
+            .setColor("RANDOM")
+            .setFooter('beg more, bro')
+            .setTimestamp()
+            return message.inlineReply(userWallet)
         }
     } 
 }

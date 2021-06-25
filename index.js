@@ -8,6 +8,7 @@ client.cooldowns = new Discord.Collection();
 client.currency = new quickDB.table('currency') 
 client.config = require('./config.json')
 require("./modules/functions.js")(client)
+require('./modules/ExtendedMessage');
 
 const commandFolders = fs.readdirSync('./commands');
 for (const folder of commandFolders) {

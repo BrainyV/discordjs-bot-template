@@ -12,6 +12,13 @@ module.exports = {
 
         if (!command) return;
 
+        let user = await client.getUser(message.author.id)
+        if (Date.now() - user.lastCmd < 1000) {
+          client.addSpam(message.author.id)
+        }
+        client.addcmdusage(message.author.id); 
+        client.setlastCmd(message.author.id, Date.now())
+
         let check = await client.isBotOwner(message.author.id)
         if (command.category === "developers" && !check) return;
 
