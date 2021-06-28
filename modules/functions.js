@@ -61,4 +61,12 @@ module.exports = (client) => {
   client.addSpam = (userID) => {
     return client.currency.add(`${userID}.spam`, 1)
   }
+
+  client.random = (min, max) => {
+    if (!Number(min)) min = 1
+    if (!Number(max)) max = 10
+
+    let random = Math.floor((Math.random() * (max - min) ) + min);
+    return random
+  } 
 }

@@ -1,0 +1,20 @@
+{
+    "poor": [
+        "Take this non-existent coin, noob.",
+        "I spent all my money on a party yesterday.",
+        "You are the 69th that I saw.",
+        "**Rich Man:** Sry bro but you just gamble the money I gave ou before."
+
+    ],
+    "lucky": [
+        "You should not begging take this {coins} coins.",
+        "Here is {coins} coins, spend this wisely.",
+        "The police gave you {coins} coins and says go home or he will jail you."
+    ],
+    "pro":[
+        "I won lottery yesterday, take this {coins} coins bro.",
+        "Your mommy saw you begging and gave you {coins} coins.",
+        "Dank Memer gave you {coins} coins and tell you to gamble it.",
+        "**Brainy:** Woah you are so lucky that I saw you, put this {coins} coins in your wallet."
+    ]
+}
